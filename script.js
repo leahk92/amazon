@@ -1,5 +1,5 @@
+// 메인 좌우 슬라이드
 const imgs = document.querySelectorAll(".header-slider ul img");
-
 const prev_btn = document.querySelector(".control_prev");
 const next_btn = document.querySelector(".control_next");
 
@@ -21,3 +21,21 @@ prev_btn.addEventListener("click", (e) => {
   }
   changeSlide();
 });
+
+next_btn.addEventListener("click", (e) => {
+  if (n < imgs.length - 1) {
+    n++;
+  } else {
+    n = 0;
+  }
+  changeSlide();
+});
+
+// Best Sellers in Sports & Outdoors 가로 마우스휠 스크롤
+const scrollContainer = document.querySelectorAll(".products");
+for (const item of scrollContainer) {
+  item.addEventListener("wheel", (evt) => {
+    evt.preventDefault();
+    item.scrollLeft += evt.deltaY;
+  });
+}
